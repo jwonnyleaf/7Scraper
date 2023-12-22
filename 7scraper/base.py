@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
 
-
 class EventScraper:
     """A class for scraping event data from a specific website.
 
@@ -137,15 +136,3 @@ class EventScraper:
     def close(self):
         """Closes the Selenium WebDriver session."""
         self.driver.quit()
-
-
-if __name__ == "__main__":
-    scraper = EventScraper(
-        "", ""
-    )
-    scraper.login()
-    scraper.navigate_to_scrape_url()
-    scraper.click_expand_services()
-    events = scraper.scrape_events()
-    scraper.export_to_csv(events)
-    scraper.close()
